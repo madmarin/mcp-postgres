@@ -1,4 +1,4 @@
-# Contributing to mcp-postgres
+# Contributing to mcp-postgres-server
 
 Thank you for your interest in contributing! This document explains how to set up your environment, the project conventions, and how to submit a pull request.
 
@@ -10,8 +10,8 @@ Thank you for your interest in contributing! This document explains how to set u
 
 ```bash
 # 1. Fork and clone the repo
-git clone https://github.com/your-username/mcp-postgres
-cd mcp-postgres
+git clone https://github.com/your-username/mcp-postgres-server
+cd mcp-postgres-server
 
 # 2. Create a virtual environment
 python -m venv .venv
@@ -141,7 +141,7 @@ Before opening a PR, make sure:
 
 ## Reporting Issues
 
-Use [GitHub Issues](https://github.com/madmarin/mcp-postgres/issues). Please include:
+Use [GitHub Issues](https://github.com/madmarin/mcp-postgres-server/issues). Please include:
 
 - Python version
 - PostgreSQL version

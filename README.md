@@ -1,8 +1,8 @@
-# mcp-postgres
+# mcp-postgres-server
 
 A production-ready [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that gives AI assistants (Claude, etc.) direct, safe access to your PostgreSQL database.
 
-[![CI](https://github.com/madmarin/mcp-postgres/actions/workflows/ci.yml/badge.svg)](https://github.com/madmarin/mcp-postgres/actions/workflows/ci.yml)
+[![CI](https://github.com/madmarin/mcp-postgres-server/actions/workflows/ci.yml/badge.svg)](https://github.com/madmarin/mcp-postgres-server/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/mcp-postgres-server)](https://pypi.org/project/mcp-postgres-server/)
 [![Python](https://img.shields.io/pypi/pyversions/mcp-postgres-server)](https://pypi.org/project/mcp-postgres-server/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -11,7 +11,7 @@ A production-ready [Model Context Protocol (MCP)](https://modelcontextprotocol.i
 
 ## What it does
 
-`mcp-postgres` exposes five tools to any MCP-compatible client:
+`mcp-postgres-server` exposes five tools to any MCP-compatible client:
 
 | Tool | Description |
 |------|-------------|
@@ -35,7 +35,7 @@ Or install from source:
 
 ```bash
 git clone https://github.com/madmarin/mcp-postgres-server
-cd mcp-postgres
+cd mcp-postgres-server
 pip install -e .
 ```
 
@@ -51,6 +51,21 @@ Minimum required:
 
 ```env
 DATABASE_URL=postgresql+psycopg://user:password@localhost:5432/mydb
+```
+
+If your password contains special characters (for example `@`, `:`, `/`, `#`, `%`), URL-encode it in `DATABASE_URL`.
+
+Example:
+
+```env
+# Raw password: p@ss:w0rd/with#chars%
+DATABASE_URL=postgresql+psycopg://postgres:p%40ss%3Aw0rd%2Fwith%23chars%25@localhost:5432/mydb
+```
+
+You can encode safely with Python:
+
+```bash
+python3 -c "import urllib.parse; print(urllib.parse.quote('p@ss:w0rd/with#chars%', safe=''))"
 ```
 
 ### 3. Run
@@ -119,7 +134,7 @@ All settings are read from environment variables or a `.env` file in the working
 | `POSTGRES_DB` | `postgres` | Database name |
 | `POSTGRES_USER` | `postgres` | Username |
 | `POSTGRES_PASSWORD` | — | Password |
-| `MCP_SERVER_NAME` | `mcp-postgres` | Name reported to MCP clients |
+| `MCP_SERVER_NAME` | `mcp-postgres` | Name reported to MCP clients (logical MCP server name, not the CLI command) |
 | `MCP_TRANSPORT` | `stdio` | Transport: `stdio` or `sse` |
 | `LOG_LEVEL` | `INFO` | `DEBUG`, `INFO`, `WARNING`, `ERROR` |
 | `ALLOW_WRITE` | `false` | Set to `true` to enable the `execute` tool |
@@ -237,8 +252,8 @@ Output (JSON):
 ## Development
 
 ```bash
-git clone https://github.com/madmarin/mcp-postgres
-cd mcp-postgres
+git clone https://github.com/madmarin/mcp-postgres-server
+cd mcp-postgres-server
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev,test]"
 pre-commit install

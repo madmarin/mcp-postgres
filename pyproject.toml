@@ -56,9 +56,9 @@ test = [
 mcp-postgres-server = "mcp_postgres.server:main"
 
 [project.urls]
-Homepage = "https://github.com/madmarin/mcp-postgres"
-Repository = "https://github.com/madmarin/mcp-postgres"
-Issues = "https://github.com/madmarin/mcp-postgres/issues"
+Homepage = "https://github.com/madmarin/mcp-postgres-server"
+Repository = "https://github.com/madmarin/mcp-postgres-server"
+Issues = "https://github.com/madmarin/mcp-postgres-server/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/mcp_postgres"]
