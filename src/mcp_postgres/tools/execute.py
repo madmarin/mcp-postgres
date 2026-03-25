@@ -36,7 +36,8 @@ async def execute(sql: str, params: list[Any] | None = None) -> str:
     """
     if not settings.allow_write:
         raise exc.PermissionError(
-            "Write operations are disabled. Set ALLOW_WRITE=true in your environment to enable them."
+            "Write operations are disabled. "
+            "Set ALLOW_WRITE=true in your environment to enable them."
         )
 
     if _DENYLIST.search(sql):
