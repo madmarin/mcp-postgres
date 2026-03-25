@@ -4,8 +4,8 @@ import json
 
 import pytest
 
-from mcp_postgres import exceptions as exc
-from mcp_postgres.tools.query import query
+from mcp_postgres_server import exceptions as exc
+from mcp_postgres_server.tools.query import query
 
 
 @pytest.mark.asyncio

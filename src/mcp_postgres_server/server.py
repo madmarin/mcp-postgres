@@ -10,14 +10,14 @@ from typing import Any
 from loguru import logger
 from mcp.server.fastmcp import FastMCP
 
-from mcp_postgres import exceptions as exc
-from mcp_postgres.config import settings
-from mcp_postgres.db.pool import close_pool, init_pool
-from mcp_postgres.tools.execute import execute as _execute
-from mcp_postgres.tools.introspect import describe_table as _describe_table
-from mcp_postgres.tools.query import query as _query
-from mcp_postgres.tools.schema import list_schemas as _list_schemas
-from mcp_postgres.tools.schema import list_tables as _list_tables
+from mcp_postgres_server import exceptions as exc
+from mcp_postgres_server.config import settings
+from mcp_postgres_server.db.pool import close_pool, init_pool
+from mcp_postgres_server.tools.execute import execute as _execute
+from mcp_postgres_server.tools.introspect import describe_table as _describe_table
+from mcp_postgres_server.tools.query import query as _query
+from mcp_postgres_server.tools.schema import list_schemas as _list_schemas
+from mcp_postgres_server.tools.schema import list_tables as _list_tables
 
 
 def _configure_logging() -> None:

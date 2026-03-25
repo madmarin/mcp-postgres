@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     postgres_password: str = ""
 
     # --- Server ---
-    mcp_server_name: str = "mcp-postgres"
+    mcp_server_name: str = "mcp-postgres-server"
     mcp_transport: Literal["stdio", "sse"] = "stdio"
     log_level: str = "INFO"
 

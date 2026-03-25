@@ -5,13 +5,25 @@ from unittest.mock import patch
 
 import pytest
 
-from mcp_postgres import exceptions as exc
-from mcp_postgres.tools.execute import execute
+from mcp_postgres_server import exceptions as exc
+from mcp_postgres_server.tools import execute as execute_mod
+from mcp_postgres_server.tools.execute import execute
+
+
+@pytest.fixture(autouse=True)
+def _allow_write_enabled():
+    """Enable write mode for execute tests unless a test overrides it explicitly."""
+    previous = execute_mod.settings.allow_write
+    execute_mod.settings.allow_write = True
+    try:
+        yield
+    finally:
+        execute_mod.settings.allow_write = previous
 
 
 @pytest.mark.asyncio
 async def test_execute_blocked_by_default():
-    with patch("mcp_postgres.tools.execute.settings") as mock_settings:
+    with patch("mcp_postgres_server.tools.execute.settings") as mock_settings:
         mock_settings.allow_write = False
         with pytest.raises(exc.PermissionError, match="ALLOW_WRITE"):
             await execute("INSERT INTO users (name) VALUES ('X')")
@@ -36,7 +48,7 @@ async def test_denylist_blocks_drop_database():
 
 @pytest.mark.asyncio
 async def test_rollback_on_error(seed_tables):
-    from mcp_postgres.tools.query import query
+    from mcp_postgres_server.tools.query import query
 
     before = json.loads(await query("SELECT COUNT(*) FROM users"))["rows"][0][0]
 

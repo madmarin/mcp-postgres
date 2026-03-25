@@ -134,7 +134,7 @@ All settings are read from environment variables or a `.env` file in the working
 | `POSTGRES_DB` | `postgres` | Database name |
 | `POSTGRES_USER` | `postgres` | Username |
 | `POSTGRES_PASSWORD` | — | Password |
-| `MCP_SERVER_NAME` | `mcp-postgres` | Name reported to MCP clients (logical MCP server name, not the CLI command) |
+| `MCP_SERVER_NAME` | `mcp-postgres-server` | Name reported to MCP clients (logical MCP server name, not the CLI command) |
 | `MCP_TRANSPORT` | `stdio` | Transport: `stdio` or `sse` |
 | `LOG_LEVEL` | `INFO` | `DEBUG`, `INFO`, `WARNING`, `ERROR` |
 | `ALLOW_WRITE` | `false` | Set to `true` to enable the `execute` tool |

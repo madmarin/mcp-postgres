@@ -53,7 +53,7 @@ test = [
 ]
 
 [project.scripts]
-mcp-postgres-server = "mcp_postgres.server:main"
+mcp-postgres-server = "mcp_postgres_server.server:main"
 
 [project.urls]
 Homepage = "https://github.com/madmarin/mcp-postgres-server"
@@ -61,7 +61,7 @@ Repository = "https://github.com/madmarin/mcp-postgres-server"
 Issues = "https://github.com/madmarin/mcp-postgres-server/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/mcp_postgres"]
+packages = ["src/mcp_postgres_server"]
 
 [tool.ruff]
 target-version = "py311"
@@ -84,10 +84,10 @@ files = ["src"]
 testpaths = ["tests"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "session"
-addopts = "--cov=src/mcp_postgres --cov-report=term-missing"
+addopts = "--cov=src/mcp_postgres_server --cov-report=term-missing"
 
 [tool.coverage.run]
-source = ["src/mcp_postgres"]
+source = ["src/mcp_postgres_server"]
 omit = ["tests/*"]
 
 [tool.coverage.report]

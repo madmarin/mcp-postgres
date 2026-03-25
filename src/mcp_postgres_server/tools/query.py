@@ -13,8 +13,8 @@ from uuid import UUID
 
 from loguru import logger
 
-from mcp_postgres import exceptions as exc
-from mcp_postgres.db.pool import acquire
+from mcp_postgres_server import exceptions as exc
+from mcp_postgres_server.db.pool import acquire
 
 # Only allow statements that start with SELECT or a CTE (WITH ... SELECT)
 _ALLOWED_PATTERN = re.compile(r"^\s*(WITH\b|SELECT\b)", re.IGNORECASE)

@@ -9,8 +9,8 @@ import psycopg
 from loguru import logger
 from psycopg_pool import AsyncConnectionPool
 
-from mcp_postgres import exceptions as exc
-from mcp_postgres.config import Settings
+from mcp_postgres_server import exceptions as exc
+from mcp_postgres_server.config import Settings
 
 _pool: AsyncConnectionPool | None = None
 

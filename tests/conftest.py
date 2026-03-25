@@ -6,8 +6,8 @@ import pytest
 import pytest_asyncio
 from testcontainers.postgres import PostgresContainer
 
-from mcp_postgres.config import Settings
-from mcp_postgres.db import pool as pool_mod
+from mcp_postgres_server.config import Settings
+from mcp_postgres_server.db import pool as pool_mod
 
 
 @pytest.fixture(scope="session")
@@ -37,7 +37,7 @@ async def db_pool(test_settings):
 @pytest_asyncio.fixture()
 async def seed_tables(db_pool):  # noqa: ARG001 — ensures pool is initialized before this fixture
     """Create and seed sample tables for query tests."""
-    from mcp_postgres.db.pool import acquire
+    from mcp_postgres_server.db.pool import acquire
 
     async with acquire() as conn:
         await conn.execute("""

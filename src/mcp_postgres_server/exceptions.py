@@ -1,4 +1,4 @@
-"""Custom exception hierarchy for mcp-postgres."""
+"""Custom exception hierarchy for mcp-postgres-server."""
 
 
 class MCPPostgresError(Exception):

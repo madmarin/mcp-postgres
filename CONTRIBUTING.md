@@ -110,7 +110,7 @@ Before opening a PR, make sure:
 
 ## How to Add a New Tool
 
-1. **Create the implementation** in `src/mcp_postgres/tools/your_tool.py`
+1. **Create the implementation** in `src/mcp_postgres_server/tools/your_tool.py`
 
    ```python
    async def your_tool(arg: str) -> str:
@@ -119,10 +119,10 @@ Before opening a PR, make sure:
        return json.dumps(result)
    ```
 
-2. **Register it** in `src/mcp_postgres/server.py`:
+2. **Register it** in `src/mcp_postgres_server/server.py`:
 
    ```python
-   from mcp_postgres.tools.your_tool import your_tool as _your_tool
+   from mcp_postgres_server.tools.your_tool import your_tool as _your_tool
 
    @mcp.tool()
    async def your_tool(arg: str) -> str:

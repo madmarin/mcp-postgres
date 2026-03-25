@@ -4,9 +4,9 @@ import json
 
 import pytest
 
-from mcp_postgres import exceptions as exc
-from mcp_postgres.tools.introspect import describe_table
-from mcp_postgres.tools.schema import list_schemas, list_tables
+from mcp_postgres_server import exceptions as exc
+from mcp_postgres_server.tools.introspect import describe_table
+from mcp_postgres_server.tools.schema import list_schemas, list_tables
 
 
 @pytest.mark.asyncio
