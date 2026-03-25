@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mcp-postgres-server"
-version = "0.1.0"
+version = "0.1.1"
 description = "A production-ready MCP server that exposes PostgreSQL databases via the Model Context Protocol"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -53,7 +53,7 @@ test = [
 ]
 
 [project.scripts]
-mcp-postgres = "mcp_postgres.server:main"
+mcp-postgres-server = "mcp_postgres.server:main"
 
 [project.urls]
 Homepage = "https://github.com/madmarin/mcp-postgres"
